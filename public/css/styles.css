@@ -308,3 +308,11 @@ li:hover>a:hover{
 .googlecontainer:hover .middle {
   opacity: 1;
 }
+#hiddenimage{
+	display: none;
+}
+#ajdesno
+{
+	padding-top: 30px;
+	float: right;
+}

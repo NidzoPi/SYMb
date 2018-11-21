@@ -182,10 +182,12 @@ $(function(){
 
    		{{ Form::label ('body', 'About you and your motorcycle:') }}
 
-   		{{ Form::textarea('body', null, array ('class' => 'form-control', 'pattern'=>'[A-Za-z0-9]+', 'id' =>'editor', 'required' => '','minlength' => '150', 'maxlength' => '1000', 'oninvalid' => 'countCharacters', 'onvalid' => '  this.setCustomValidity("You are free! :D")')) }}
+   		{{ Form::textarea('body', null, array ('class' => 'form-control', 'id' =>'editor', 'minlength' => '150', 'required' => '', 'oninvalid' => 'alert("Add more characters!")')) }}
    		<p id="charactersRemaining"></p>
-
-   		<img id="hiddenimage" style="display: none" src="/images/dodaci/favicon.png"/>
+   		<div id="hiddenimage">
+   		<img src="/images/dodaci/favicon.png"/>
+   		<p id="ajdesno"> Nice text, thank you! </p>
+   		</div>
    		<br>
 
 			<div style="padding-bottom: 20px;" class="g-recaptcha" data-sitekey="6Ld961kUAAAAAIGxahqCq0fT5uBMm65uzeFh6xCe"></div>
@@ -221,7 +223,7 @@ function countCharacters(e) {
   counter = (150 - (tlength));
   countRemaining = document.getElementById('charactersRemaining'); 
   countRemaining.textContent = counter;
-   
+  localStorage.setItem("counterStorage",tlength);
   if (counter <= 0) {
 	  $('#hiddenimage').show();
 	  $('#charactersRemaining').hide();
@@ -231,11 +233,11 @@ function countCharacters(e) {
   {
 	  $('#hiddenimage').hide();
 	  $('#charactersRemaining').show();
-	  this.setCustomValidity(tlength);
   }
 
 
 }
+
 el = document.getElementById('editor');                   
 el.addEventListener('keyup', countCharacters, false);
 

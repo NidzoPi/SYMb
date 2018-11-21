@@ -42,7 +42,7 @@
 
 			<a data-fancybox="group" class="lightbox" href="{{asset('images/'. $image->name)}}">
 
-			<img id="trebapaddinga" src="{{asset('images/'. $image->name)}}" width="400" height="auto" />
+			<img class="img-fluid"  alt="Responsive image" id="trebapaddinga" src="{{asset('images/'. $image->name)}}" width="400" height="auto" />
 
 			</a>
 
@@ -50,7 +50,7 @@
 
 			<a data-fancybox="group" class="lightbox" href="{{asset('images/'. $image->name)}}">
 
-			<img style="display: none;" src="{{asset('images/'. $image->name)}}" width="500" />
+			<img class="img-fluid"  alt="Responsive image" style="display: none;" src="{{asset('images/'. $image->name)}}" width="500" />
 
 			</a>
 
